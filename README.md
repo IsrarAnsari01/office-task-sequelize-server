@@ -1,4 +1,6 @@
-"# first-server-using-sequrlize" 
-"# first-server-using-sequrlize" 
-"# first-server-using-sequrlize" 
-"# office-task-sequelize-server" 
+## B-Simple CRUD sever 
+### Tools 
+* Node js
+* Express js
+* Sequelize 
+* mysql

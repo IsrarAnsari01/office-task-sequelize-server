@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = new Sequelize("testserver", "root", "", {
+const sequelize = new Sequelize("js_crud", "root", "", {
   host: "localhost",
   dialect: "mysql",
   logging: false,
@@ -21,7 +21,7 @@ db.subject = require("../module/models/subject.model")(sequelize, DataTypes);
     )
     .catch((err) => console.log("Error in Connection through sequelize", err));
 })();
-// db.sequelize
-//   .sync({ alter: true})
-//   .then(() => console.log("Re-Sync Successfully"));
+db.sequelize
+  .sync({ alter: true})
+  .then(() => console.log("Re-Sync Successfully"));
 module.exports = db;

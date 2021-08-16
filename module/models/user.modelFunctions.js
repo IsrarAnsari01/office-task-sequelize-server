@@ -10,7 +10,6 @@ module.exports.saveNewUser = async (userData) => {
 module.exports.deleteUser = async (userId) => {
   try {
     var delUser = await db.user.destroy({
-        
       where: {
         id: userId,
       },
@@ -39,4 +38,32 @@ module.exports.updateUser = async (userInfo, id) => {
     console.log(err);
   }
   return updatedUser;
+};
+
+module.exports.loginUser = async (userInfo) => {
+  try {
+    var loginUser = await db.user.findOne({
+      where: {
+        email: userInfo.email,
+        password: userInfo.password,
+        role: userInfo.role,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  return loginUser;
+};
+
+module.exports.findSingleUser = async (user) => {
+  try {
+    var singleUser = await db.user.findOne({
+      where: {
+        id: user.id,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  return singleUser;
 };
